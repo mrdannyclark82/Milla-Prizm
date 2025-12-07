@@ -31,7 +31,7 @@ export class LipSyncController {
     this.analyser = this.audioContext.createAnalyser();
     this.analyser.fftSize = 256;
     const bufferLength = this.analyser.frequencyBinCount;
-    this.dataArray = new Uint8Array(bufferLength) as Uint8Array<ArrayBuffer>;
+    this.dataArray = new Uint8Array(bufferLength);
 
     // Connect audio source
     const source = this.audioContext.createMediaElementSource(audioElement);
@@ -52,7 +52,8 @@ export class LipSyncController {
   private analyze() {
     if (!this.isAnalyzing || !this.analyser || !this.dataArray) return;
 
-    (this.analyser.getByteFrequencyData as (array: Uint8Array) => void)(this.dataArray);
+    // @ts-ignore - TypeScript incorrectly flags ArrayBufferLike vs ArrayBuffer
+    this.analyser.getByteFrequencyData(this.dataArray);
 
     // Calculate average volume
     let sum = 0;
