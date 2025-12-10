@@ -2,7 +2,6 @@
 
 A real-time, full upper-body holographic companion that floats above the screen using your front camera. Milla Prism is a Progressive Web App (PWA) that combines 3D graphics, voice interaction, and AI assistance in a beautiful, immersive experience.
 
-![Milla Prism Screenshot](https://github.com/user-attachments/assets/69cde621-ccb6-4064-be21-3f590a59c5c1)
 
 ## ✨ Features
 
